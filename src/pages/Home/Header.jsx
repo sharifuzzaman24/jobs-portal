@@ -2,14 +2,15 @@ import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import team1 from '../../assets/team1.jpg'
 import team2 from '../../assets/team2.jpg'
+import { motion } from 'motion/react'
 
 const Header = () => {
     return (
         <div className="hero min-h-screen w-4/5 mx-auto">
             <div className="hero-content flex-  lg:flex-row-reverse">
                 <div className='flex-1'>
-                    <img className='w-96 rounded-t-[40px] rounded-br-[40px] border-l-[6px] border-b-[6px] border-[#3C65F5]' src={team1} alt="" />    
-                    <img className='w-72 rounded-t-[40px] rounded-br-[40px] border-l-[6px] border-b-[6px] border-[#3C65F5]' src={team2} alt="" /> 
+                    <motion.img animate={{ y:[10, 100, 10]}} transition={{duration: 10, repeat: Infinity}} className='w-96 rounded-t-[40px] rounded-br-[40px] border-l-[6px] border-b-[6px] border-[#3C65F5]' src={team1} alt="" />
+                    <motion.img animate={{ x:[150, 210, 150]}} transition={{duration: 10, repeat: Infinity}} className='w-72 rounded-t-[40px] rounded-br-[40px] border-l-[6px] border-b-[6px] border-[#3C65F5]' src={team2} alt="" />
                 </div>
                 <div className='flex-1'>
                     <h1 className="text-6xl font-bold text-[#05264E]">The <span className='text-[#3C65F5]'>Easiest Way</span> to Get Your New Job</h1>
@@ -23,17 +24,17 @@ const Header = () => {
 
 
                         <div className='flex'>
-                            <select className="select select-ghost">
-                                <option disabled selected>In</option>
-                                <option>Svelte</option>
-                                <option>Vue</option>
-                                <option>React</option>
+                            <select defaultValue={1} className="select select-ghost">
+                                <option value={1} disabled>In</option>
+                                <option value={2}>Svelte</option>
+                                <option value={3}>Vue</option>
+                                <option value={4}>React</option>
                             </select>
-                            <select className="select select-ghost">
-                                <option disabled selected>L</option>
-                                <option>Svelte</option>
-                                <option>Vue</option>
-                                <option>React</option>
+                            <select defaultValue={1} className="select select-ghost">
+                                <option value={1} disabled>L</option>
+                                <option value={2}>Svelte</option>
+                                <option value={3}>Vue</option>
+                                <option value={4}>React</option>
                             </select>
                         </div>
                         <div>

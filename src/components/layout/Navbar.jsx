@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/job-portal.png'
 import { Link } from 'react-router-dom';
+import AuthContext from '../../provider/AuthContext';
 
 const Navbar = () => {
+
+    const {user, logOut} = useContext(AuthContext);
+
     return (
         <div className="navbar w-4/5 mx-auto">
             <div className="navbar-start">
@@ -35,10 +39,10 @@ const Navbar = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="flex items-center">
+                <Link to={'/'} className="flex items-center">
                     <img className='w-14' src={logo} alt="" />
                     <p className='text-[#05264E] text-xl font-bold'>Job Portal</p>
-                </a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -56,10 +60,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className='flex items-center gap-3'>
+                {
+                    user ? <button onClick={logOut} className="bg-red-600 text-white px-5 py-[10px] rounded-lg">Logout</button>:<div className='flex items-center gap-3'>
                     <Link to={'/register'} className="text-[#05264E] underline hover:text-[#3c65f5]">Register</Link>
                     <Link to={'/login'} className="bg-[#3C65F5] text-white px-5 py-[10px] rounded-lg">Login</Link>
                 </div>
+                }
             </div>
         </div>
     );
