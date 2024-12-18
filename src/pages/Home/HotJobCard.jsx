@@ -87,7 +87,7 @@ const HotJobCard = ({ job }) => {
         <div className="flex flex-wrap gap-2 mt-2">
 
           {
-            job.requirements.map((req, idx) => <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+            job.requirementsList.map((req, idx) => <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
               {req}
             </span>)
           }
