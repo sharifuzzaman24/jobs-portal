@@ -9,12 +9,17 @@ import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/auth/Login/LoginPage';
 import RegisterPage from './pages/auth/Login/RegisterPage';
 import AuthProvider from './provider/AuthProvider';
+import AllJobs from './pages/allJobs/AllJobs';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage></HomePage>,
+  },
+  {
+    path: "/all-jobs",
+    element: <AllJobs></AllJobs>,
   },
   {
     path: "/login",
@@ -31,5 +36,6 @@ createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    
   </StrictMode>,
 )
