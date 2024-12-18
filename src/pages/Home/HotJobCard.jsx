@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const HotJobCard = ({job}) => {
-    return (
-        <div className="max-w-md mx-auto my-4 p-4 bg-white shadow-lg rounded-lg border border-gray-200">
+const HotJobCard = ({ job }) => {
+  return (
+    <div className="max-w-md mx-auto my-4 p-4 bg-white shadow-lg rounded-lg border border-gray-200">
       {/* Job Title and Company */}
       <div className="flex items-center justify-between">
         <div className="flex items-center">
@@ -85,25 +86,27 @@ const HotJobCard = ({job}) => {
         <span className="text-sm font-medium text-gray-700">Skills:</span>
         <div className="flex flex-wrap gap-2 mt-2">
 
-            {
-                job.requirements.map((req, idx) => <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
-                    {req}
-                  </span>)
-            }
-          
-          
+          {
+            job.requirements.map((req, idx) => <span key={idx} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+              {req}
+            </span>)
+          }
+
+
         </div>
       </div>
 
       {/* Apply Button */}
       <div className="mt-6">
-        <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
-          Apply Now
-        </button>
+        <Link to={`/jobs/details/${job._id}`}>
+          <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
+            Apply Now
+          </button>
+        </Link>
       </div>
     </div>
 
-    );
+  );
 };
 
 export default HotJobCard;
