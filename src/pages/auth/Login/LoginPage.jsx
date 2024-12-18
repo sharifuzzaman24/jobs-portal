@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Navbar from '../../../components/layout/Navbar';
 import Footer from '../../../components/layout/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import AuthContext from '../../../provider/AuthContext';
 import loginAnimation from '../../../../public/login.json'
@@ -10,6 +10,8 @@ import Lottie from 'lottie-react';
 const LoginPage = () => {
 
     const { signInUser, googleSignIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSignIn = (e) => {
         e.preventDefault();
@@ -19,7 +21,7 @@ const LoginPage = () => {
         console.log(email, password)
         signInUser(email, password)
             .then((result) => {
-                console.log(result.user)
+                navigate(location.state || '/')
             })
             .catch((err) => {
                 console.log(err)

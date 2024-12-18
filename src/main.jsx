@@ -10,6 +10,7 @@ import LoginPage from './pages/auth/Login/LoginPage';
 import RegisterPage from './pages/auth/Login/RegisterPage';
 import AuthProvider from './provider/AuthProvider';
 import AllJobs from './pages/allJobs/AllJobs';
+import PrivateRoute from './route/PrivateRoute';
 
 
 const router = createBrowserRouter([
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/all-jobs",
-    element: <AllJobs></AllJobs>,
+    element: <PrivateRoute><AllJobs></AllJobs></PrivateRoute>,
   },
   {
     path: "/login",
